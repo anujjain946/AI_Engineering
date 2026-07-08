@@ -1,0 +1,20 @@
+[
+    {
+        "Name": "Anuj",
+        "Subject": "Math",
+        "Marks": 85,
+        "Date": "2026-03-14"
+    },
+    {
+        "Name": "Rahul",
+        "Subject": "Science",
+        "Marks": 90,
+        "Date": "2026-03-14"
+    },
+    {
+        "Name": "Amit",
+        "Subject": "English",
+        "Marks": 78,
+        "Date": "2026-03-14"
+    }
+]
