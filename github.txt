@@ -1,0 +1,131 @@
+### Step 1: Project folder me jao
+
+```bash
+cd /var/www/html/AI_Engineering
+```
+
+---
+
+### Step 2: Check karo ye Git repository hai ya nahi
+
+```bash
+git status
+```
+
+---
+
+### Step 3: Sab branches dekho
+
+```bash
+git branch -a
+```
+
+Agar output kuch is tarah aaye:
+
+```text
+* main
+  remotes/origin/main
+```
+
+to `dev` branch abhi nahi bani hai.
+
+Agar output me:
+
+```text
+* main
+  dev
+  remotes/origin/main
+  remotes/origin/dev
+```
+
+dikhe, to seedha Step 7 par chale jana.
+
+---
+
+### Step 4: `main` par aa jao
+
+```bash
+git checkout main
+```
+
+---
+
+### Step 5: Latest code lo
+
+```bash
+git pull origin main
+```
+
+---
+
+### Step 6: `dev` branch banao aur GitHub par push karo
+
+```bash
+git checkout -b dev
+git push -u origin dev
+```
+
+Ab `dev` branch ban gayi.
+
+---
+
+### Step 7: `dev` par kaam karo
+
+```bash
+git checkout dev
+```
+
+Code me changes karo.
+
+---
+
+### Step 8: Commit karo
+
+```bash
+git add .
+git commit -m "Added new feature"
+```
+
+---
+
+### Step 9: `dev` par push karo
+
+```bash
+git push origin dev
+```
+
+---
+
+### Step 10: GitHub par Pull Request banao
+
+1. GitHub repository kholo.
+2. **Pull requests** tab par jao.
+3. **New Pull Request** par click karo.
+4. **Base branch:** `main`
+5. **Compare branch:** `dev`
+6. **Create Pull Request** par click karo.
+7. Review ke baad **Merge** kar do.
+
+### Final Workflow
+
+```text
+main (Production)
+       ▲
+       │ Pull Request
+       │
+dev (Development)
+       ▲
+       │ git push
+       │
+   Your Code
+```
+
+## ⚠️ Sabse pehle ek cheez confirm karo
+
+Ye command chalao:
+
+```bash
+git branch -a
+```
+
+Aur uska output yahan paste karo. Isse pata chal jayega ki `dev` branch pehle se hai ya abhi banani hai.
