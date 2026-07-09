@@ -1,8 +1,160 @@
 Python Interview Questions 
 
-Que:What is Python and why is it popular?
+Que1:What is Python and why is it popular?
 
     Python is a high-level, interpreted, object-oriented programming language known for its simple syntax and readability. It is used for web development, automation, data science, AI/ML, scripting, and DevOps.
 
+Que2:Why is it popular?
+    1. Easy to learn and write
+    2. Huge standard library and community support
+    3. Cross-platform (Windows, Linux, macOS)
+    4. Supports multiple programming paradigms (OOP, Functional, Procedural)
+    5. Large ecosystem (Django, Flask, Pandas, NumPy, TensorFlow)
 
-Que:Difference between Python 2 and Python 3.
+Que3:Difference between Python 2 and Python 3.
+    Python 2 :
+    1. Released in 2000
+    2. Not supported
+    3. print "Hello"
+    4. xrange()
+    5. Default ASCII strings
+    6. Integer division: 5/2 = 2
+    -----------------------------
+    Python 3 :
+    1. Released in 2008
+    2. Actively supported
+    3. print("Hello")
+    4. range()
+    5. Default Unicode strings
+    6. Integer division: 5/2 = 2.5
+
+Que4:What are Python data types?
+    Python data types define the type of value stored in a variable.
+    Data Type : int,float,complex,str,list,tuple,set,dict,bool,noneType
+
+Que5:What is list comprehension?
+    List comprehension is a concise way to create a new list from an existing iterable.
+
+    '''
+        square = [i*i for i in range(5)]
+        print(square)
+
+    '''
+
+Que6:What are lambda functions?
+    A lambda function is a small anonymous function written in a single line.
+
+    '''
+        square = lambda x: x*x
+        print(square(5))
+    ''' 
+
+Que7:What is mutable and immutable in Python?
+    Mutable Objects:
+                    Can be modified after creation.
+        
+    Immutable Objects:
+                    Can not be modified after creation.
+
+Que8:Difference between is and ==?
+    == (Value Comparison)
+        Checks whether two objects have the same value
+
+    is (Identity Comparison)
+        Checks whether two variables point to the same object in memory.
+
+
+-------------------x-------------------x---------------x------------------------
+OOP's
+
+
+Que1:Explain OOP (Object-Oriented Programming) Concepts in Python?
+    OOP is a programming style where we create objects from classes.
+    A class is like a blueprint, and an object is the real thing created from that blueprint.
+
+    Four Main OOP Concepts:
+        1.Encapsulation
+        2.Inheritance
+        3.Polymorphism
+        4.Abstraction
+
+Que2:What is Inheritance?
+    Inheritance means one class acquires the properties and methods of another class.It helps us reuse code.
+
+    ```
+        class Animal:
+            def sound(self):
+                    print("Animal makes sound")
+
+        class Dog(Animal):
+            def bark(self):
+                print("Dog barks")
+
+        d = Dog()
+
+        d.sound()
+        d.bark()
+    ```
+
+Que3:What is Polymorphism?
+    Polymorphism means
+        Polymorphism means
+    The same method behaves differently for different objects.
+    ```
+        class Dog:
+            def sound(self):
+                print("Bark")
+
+        class Cat:
+            def sound(self):
+                print("Meow")
+
+        animals = [Dog(), Cat()]
+
+        for animal in animals:
+            animal.sound()
+
+    ```
+Que4:What is Encapsulation?
+    Encapsulation means
+        Wrapping data and methods into one unit (class) and restricting direct access to data.
+    ```
+        class Employee:
+
+            def __init__(self):
+                    self.name = "Rahul"
+                    self.__salary = 50000
+
+            obj = Employee()
+
+            print(obj.name)
+
+            # print(obj.__salary)
+
+    ```
+
+Que5:What is Abstraction?
+    Abstraction means
+        Showing only essential details and hiding implementation.
+    
+    ```
+        from abc import ABC, abstractmethod
+
+            class Vehicle(ABC):
+
+                @abstractmethod
+                def start(self):
+                    pass
+
+            class Car(Vehicle):
+
+                def start(self):
+                    print("Car Started")
+
+            c = Car()
+            c.start()
+
+    ```
+-------------------x-------------------x---------------x------------------------
+
+
