@@ -98,8 +98,8 @@ Que2:What is Inheritance?
 
 Que3:What is Polymorphism?
     Polymorphism means
-        Polymorphism means
     The same method behaves differently for different objects.
+    
     ```
         class Dog:
             def sound(self):
