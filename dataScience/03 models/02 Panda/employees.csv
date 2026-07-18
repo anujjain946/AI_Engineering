@@ -1,0 +1,17 @@
+EmployeeID,Name,Age,Department,Salary,City,Experience,JoiningDate
+101,Anuj,30,IT,50000,Delhi,5,2020-05-12
+102,Ravi,25,HR,35000,Jaipur,2,2022-06-15
+103,Aman,,IT,45000,Indore,3,2021-03-20
+104,Pooja,29,Finance,60000,Delhi,6,2019-08-18
+105,Ravi,25,HR,35000,Jaipur,2,2022-06-15
+106,Neha,31,IT,,Mumbai,7,2018-04-10
+107,Karan,45,Management,120000,Delhi,20,2005-02-01
+108,Priya,28,Finance,58000,Delhi,5,2020-11-11
+109,Vikas,150,IT,48000,Pune,4,2021-09-01
+110,,26,Sales,42000,Ahmedabad,3,2022-10-05
+111,Rohit,27,Sales,41000,Ahmedabad,3,2022-10-05
+112,Anjali,29,HR,37000,Jaipur,5,2020-01-01
+113,Deepak,32,IT,52000,Delhi,8,2017-06-25
+114,Simran,24,Finance,39000,Mumbai,1,2023-01-15
+115,Amit,-5,Sales,43000,Pune,2,2023-03-10
+115,Amit,-5,Sales,43000,Pune,2,2023-03-10
