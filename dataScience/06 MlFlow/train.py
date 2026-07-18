@@ -52,30 +52,13 @@ with mlflow.start_run(run_name="base_line"):
     mlflow.log_metric("accuracy", accuracy)
 
      # save the model and register it
-    mlflow.sklearn.log_model(logistic_model, artifact_path="logistic_model", registered_model_name="Iris_Classifier")
-
+    # mlflow.sklearn.log_model(logistic_model, artifact_path="logistic_model", registered_model_name="Iris_Classifier")
+    mlflow.sklearn.log_model(
+        logistic_model,
+        name="logistic_model",
+        registered_model_name="Iris_Classifier"
+    )
     print("Baseline Accuracy: ", accuracy)
     print("Run ID: ", mlflow.active_run().info.run_id)
 
 
-
-
-    
-    # #log confusion matrix
-    # cm = confusion_matrix(y_test, cles)
-    # plt.figure(figsize=(5,5))
-    # plt.imshow(cm, interpolation='nearest', cmap=plt.cm.Blues)
-    # plt.title('Confusion Matrix')
-    # plt.colorbar()
-    # tick_marks = np.arange(len(set(y)))
-    # plt.xticks(tick_marks, set(y))
-    # plt.yticks(tick_marks, set(y))
-    # plt.ylabel('True label')
-    # plt.xlabel('Predicted label')
-    
-    # #save the confusion matrix plot
-    # cm_plot_path = "confusion_matrix.png"
-    # plt.savefig(cm_plot_path)
-    
-    # #log the confusion matrix plot to mlflow
-    # mlflow.log_artifact(cm_plot_path)
