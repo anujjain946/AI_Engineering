@@ -1,0 +1,297 @@
+# Top 20 NumPy Interview Questions 
+
+## 1. What is NumPy? Why is it used?
+
+**Answer:**
+NumPy (Numerical Python) is a Python library used for fast numerical computation. It provides the `ndarray` object, mathematical functions, linear algebra, random number generation, and broadcasting.
+
+---
+
+## 2. What is the difference between a Python List and a NumPy Array?
+
+| Python List             | NumPy Array                   |
+| ----------------------- | ----------------------------- |
+| Slower                  | Faster                        |
+| More memory             | Less memory                   |
+| No vectorization        | Supports vectorization        |
+| Stores mixed data types | Usually stores same data type |
+
+---
+
+## 3. How do you create a NumPy array?
+
+```python
+import numpy as np
+
+arr = np.array([1, 2, 3, 4, 5])
+```
+
+---
+
+## 4. What are `shape`, `size`, `ndim`, and `dtype`?
+
+```python
+arr = np.array([[1,2,3],[4,5,6]])
+
+arr.shape   # (2,3)
+arr.size    # 6
+arr.ndim    # 2
+arr.dtype   # int64
+```
+
+---
+
+## 5. What is the difference between `arange()` and `linspace()`?
+
+```python
+np.arange(0,10,2)
+```
+
+Output:
+
+```
+[0 2 4 6 8]
+```
+
+```python
+np.linspace(0,10,5)
+```
+
+Output:
+
+```
+[0. 2.5 5. 7.5 10.]
+```
+
+**Answer:**
+
+* `arange()` → Uses step size.
+* `linspace()` → Uses the number of values.
+
+---
+
+## 6. How do you create arrays of zeros, ones, and identity matrix?
+
+```python
+np.zeros((2,3))
+np.ones((3,2))
+np.eye(3)
+```
+
+---
+
+## 7. Explain indexing and slicing in NumPy.
+
+```python
+arr = np.array([10,20,30,40,50])
+
+arr[2]
+arr[1:4]
+```
+
+Output:
+
+```
+30
+[20 30 40]
+```
+
+---
+
+## 8. What is Boolean Indexing?
+
+```python
+arr = np.array([10,20,30,40,50])
+
+arr[arr>30]
+```
+
+Output
+
+```
+[40 50]
+```
+
+---
+
+## 9. What is Fancy Indexing?
+
+```python
+arr[[0,2,4]]
+```
+
+Output
+
+```
+[10 30 50]
+```
+
+---
+
+## 10. How do you reshape an array?
+
+```python
+arr=np.arange(1,7)
+
+arr.reshape(2,3)
+```
+
+---
+
+## 11. Difference between `reshape()` and `flatten()`?
+
+```python
+arr.reshape(2,3)
+
+arr.flatten()
+```
+
+**Answer**
+
+* `reshape()` changes dimensions.
+* `flatten()` converts to a 1D copy of the array.
+
+---
+
+## 12. What is Broadcasting?
+
+```python
+arr=np.array([1,2,3])
+
+arr+10
+```
+
+Output
+
+```
+[11 12 13]
+```
+
+**Answer:** Broadcasting allows NumPy to perform operations on arrays of different shapes without explicit loops.
+
+---
+
+## 13. What is Vectorization?
+
+```python
+a=np.array([1,2,3])
+
+b=np.array([4,5,6])
+
+a+b
+```
+
+Output
+
+```
+[5 7 9]
+```
+
+**Answer:** Vectorization performs operations on entire arrays without Python loops, making code much faster.
+
+---
+
+## 14. Difference between `*` and `np.dot()`?
+
+```python
+a*b
+```
+
+Element-wise multiplication
+
+```python
+np.dot(a,b)
+```
+
+Dot (matrix) product
+
+---
+
+## 15. How do you find the maximum, minimum, and their indices?
+
+```python
+arr.max()
+
+arr.min()
+
+arr.argmax()
+
+arr.argmin()
+```
+
+---
+
+## 16. How do you calculate mean, median, and standard deviation?
+
+```python
+np.mean(arr)
+
+np.median(arr)
+
+np.std(arr)
+```
+
+---
+
+## 17. How do you concatenate two arrays?
+
+```python
+a=np.array([1,2])
+
+b=np.array([3,4])
+
+np.concatenate((a,b))
+```
+
+Output
+
+```
+[1 2 3 4]
+```
+
+---
+
+## 18. Difference between `vstack()` and `hstack()`?
+
+```python
+np.vstack((a,b))
+```
+
+Vertical stacking
+
+```python
+np.hstack((a,b))
+```
+
+Horizontal stacking
+
+---
+
+## 19. How do you generate random numbers?
+
+```python
+np.random.rand(5)
+
+np.random.randint(1,100,10)
+
+np.random.randn(5)
+```
+
+---
+
+## 20. How do you replace values based on a condition?
+
+```python
+arr=np.array([5,10,15,20])
+
+arr[arr<10]=0
+
+print(arr)
+```
+
+Output
+
+```
+[0 10 15 20]
+```
+

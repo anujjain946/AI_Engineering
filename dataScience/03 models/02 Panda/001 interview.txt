@@ -1,0 +1,319 @@
+# Top 20 Pandas Interview Questions and Answers 
+
+## 1. What is Pandas?
+
+**Answer:**
+Pandas is an open-source Python library used for data manipulation, cleaning, analysis, and handling structured data like CSV, Excel, SQL, and JSON.
+
+---
+
+## 2. What are the main data structures in Pandas?
+
+**Answer:**
+
+* **Series** – One-dimensional labeled array.
+* **DataFrame** – Two-dimensional table with rows and columns.
+
+---
+
+## 3. What is the difference between Series and DataFrame?
+
+| Series           | DataFrame                    |
+| ---------------- | ---------------------------- |
+| 1D               | 2D                           |
+| Single column    | Multiple columns             |
+| Homogeneous data | Different data types allowed |
+
+---
+
+## 4. How do you read a CSV file?
+
+```python
+import pandas as pd
+
+df = pd.read_csv("students.csv")
+```
+
+---
+
+## 5. How do you display the first and last rows?
+
+```python
+df.head()      # First 5 rows
+df.tail()      # Last 5 rows
+```
+
+---
+
+## 6. How do you get information about a DataFrame?
+
+```python
+df.info()
+```
+
+**Returns:**
+
+* Number of rows
+* Number of columns
+* Data types
+* Non-null values
+* Memory usage
+
+---
+
+## 7. What is the difference between `loc[]` and `iloc[]`?
+
+**loc[]**
+
+* Label-based indexing
+
+```python
+df.loc[0]
+df.loc[0:5]
+```
+
+**iloc[]**
+
+* Position-based indexing
+
+```python
+df.iloc[0]
+df.iloc[0:5]
+```
+
+---
+
+## 8. How do you select a column?
+
+```python
+df["Name"]
+
+# or
+
+df.Name
+```
+
+---
+
+## 9. How do you select multiple columns?
+
+```python
+df[["Name", "Age", "Salary"]]
+```
+
+---
+
+## 10. How do you filter rows?
+
+```python
+df[df["Age"] > 25]
+```
+
+Example:
+
+```python
+df[(df["Age"] > 25) & (df["Salary"] > 50000)]
+```
+
+---
+
+## 11. How do you handle missing values?
+
+Check missing values
+
+```python
+df.isnull()
+```
+
+Count missing values
+
+```python
+df.isnull().sum()
+```
+
+Remove missing values
+
+```python
+df.dropna()
+```
+
+Fill missing values
+
+```python
+df.fillna(0)
+```
+
+Fill with mean
+
+```python
+df["Age"].fillna(df["Age"].mean())
+```
+
+---
+
+## 12. Difference between `drop()` and `dropna()`
+
+**drop()**
+
+* Removes rows or columns by label.
+
+```python
+df.drop("Age", axis=1)
+```
+
+**dropna()**
+
+* Removes rows/columns containing missing values.
+
+```python
+df.dropna()
+```
+
+---
+
+## 13. What is `groupby()`?
+
+Used for grouping data and performing aggregate operations.
+
+```python
+df.groupby("Department")["Salary"].mean()
+```
+
+Example:
+
+Department | Average Salary
+
+IT | 65000
+
+HR | 45000
+
+---
+
+## 14. Difference between `merge()`, `join()`, and `concat()`
+
+### merge()
+
+SQL-style join.
+
+```python
+pd.merge(df1, df2, on="id")
+```
+
+### join()
+
+Join using index.
+
+```python
+df1.join(df2)
+```
+
+### concat()
+
+Append DataFrames.
+
+```python
+pd.concat([df1, df2])
+```
+
+---
+
+## 15. How do you sort a DataFrame?
+
+Ascending
+
+```python
+df.sort_values("Salary")
+```
+
+Descending
+
+```python
+df.sort_values("Salary", ascending=False)
+```
+
+---
+
+## 16. How do you remove duplicate rows?
+
+```python
+df.drop_duplicates()
+```
+
+Specific column
+
+```python
+df.drop_duplicates(subset="Email")
+```
+
+---
+
+## 17. Difference between `apply()`, `map()`, and `applymap()`
+
+### map()
+
+Works only on a Series.
+
+```python
+df["Age"].map(lambda x: x+1)
+```
+
+### apply()
+
+Works on Series or DataFrame.
+
+```python
+df["Salary"].apply(lambda x: x*1.1)
+```
+
+### applymap()
+
+Works element-wise on an entire DataFrame.
+
+```python
+df.applymap(str)
+```
+
+> **Note:** In recent versions of Pandas, `DataFrame.applymap()` has been deprecated in favor of `DataFrame.map()` for element-wise operations. Mentioning this in an interview shows you're aware of newer API changes.
+
+---
+
+## 18. How do you rename columns?
+
+```python
+df.rename(columns={"old":"new"}, inplace=True)
+```
+
+---
+
+## 19. How do you create a new column?
+
+```python
+df["Bonus"] = df["Salary"] * 0.10
+```
+
+Using condition
+
+```python
+df["Status"] = df["Salary"].apply(
+    lambda x: "High" if x > 50000 else "Low"
+)
+```
+
+---
+
+## 20. What is the difference between `copy()` and assignment (`=`)?
+
+Assignment
+
+```python
+df2 = df
+```
+
+Both variables refer to the **same** DataFrame. Changes in one affect the other.
+
+Copy
+
+```python
+df2 = df.copy()
+```
+
