@@ -1,0 +1,186 @@
+1. What is Statistics?
+
+    Statistics is the science of collecting, organizing, analyzing, and interpreting data to make decisions.
+
+2. Types of Statistics
+
+    Statistics mainly has 2 parts:
+        1.Descriptive Statistics वर्णनात्मक आँकड़े
+        2.Inferential Statistics आनुमानिक
+
+3. What is Descriptive Statistics?
+
+    Used to summarize and describe existing data.
+
+4. What is Common tools of Descriptive Statistics?
+
+    1. Range
+        Range = Highest Value – Lowest Value
+
+    2.Mean       
+             x̄ = Σx / n
+
+    3.Median
+            Arrange ascending order
+            Ungrouped Data Median (n is odd): [(n + 1)/2]th term
+            Ungrouped Data Median (n is even): [(n / 2)th term + ((n / 2) + 1)th term]/2
+    4.Mode
+            Mode of Ungrouped Data: Most Repeated Observation in Dataset.
+        
+    5.Standard Deviation
+            StepMake a list 1:  of each score and calculate the mean.
+            Step 2: Calculate deviation from the mean by subtracting the mean from each score.
+            Step 3: Square each of these differences.
+            Step 4: Sum up all squared variances.
+            Step 5: Divide the total of squared variances by N-1.
+            Step 6: Find the square root of the number that you discovered  
+
+5. What is Inferential Statistics?
+
+    Used to make predictions/decisions about population based on sample data.
+    Used In:
+            Surveys
+            Predictions
+            Machine Learning
+            Forecasting
+    
+6. What is Types of data?
+
+    Mainly 2 Types of data:
+        1. Qualitative Data (Categorical) गुणात्मक
+            Non-numeric data.
+                1.Gender
+                2.Color
+                3.City
+                4.Brand
+        2. Quantitative Data (Numeric)
+            Meaning:
+                Number-based data.
+            
+            Example:
+                Age
+                Salary
+                Height
+                Weight
+
+
+7. Qualitative Data Further Divided.
+
+    1. Nominal Data ->No order/ranking/Just classification
+    2. Ordinal Data ->Has order
+
+8. Quantitative Data (Numeric)
+
+    1. Discrete Data ->Countable numbers. Whole numbers only.
+
+    2. Continuous Data ->Measured values.Can have decimals.
+
+9. What is Sampling Techniques?
+
+    Selecting small data from a big population.
+
+10. Types of Sampling
+
+    1.Random Sampling
+        Everyone has equal chance.
+    2.Systematic Sampling
+        Choose every nth item.
+    3.Stratified Sampling
+        Divide into groups then sample.
+    4.Cluster Sampling
+        Divide into clusters and choose one whole cluster.
+
+11. What is the Data distribution?
+
+        How data values are spread or arranged.
+        Think of it like:
+            "Most students got marks around 70? or around 30? or are values spread randomly?"
+
+12. what is Symmetric Distribution?
+
+    When data is balanced equally on both sides.Looks like a bell 🔔
+
+13. What is Skewed Distribution?
+
+    Data is not balanced.
+
+14. what is Right Skewed Distribution (Positive Skew)?
+
+    Few very large values pull data to right.
+
+15. what is Left Skewed Distribution (Negative Skew)?
+
+    Few very small values pull data left.
+
+    *************************Measures of Central Tendency*************************
+
+
+16. Mean (Average)
+17. Median
+    Middle number after sorting.
+
+18. Mode
+
+    Most repeated value.
+
+    **********************Measures of Dispersion*****************
+
+19. what is Range?
+
+    Range = Maximum - Minimum
+
+20.  what is IQR (Interquartile Range)
+
+    Spread of middle 50% data.Ignore extreme low/high values.
+    
+                    iqr = q3 - q1
+    Q₁ (1st Quartile): The 25th percentile (median of the lower half of the data).
+    Q₃ (3rd Quartile): The 77th percentile (median of the upper half of the data).
+
+
+
+21. what is Variance?
+    How far values are from mean.
+    If variance high:
+    Data very spread.
+    If low:
+    Data close together.
+
+22. What is Standard Deviation?
+        Square root of variance.
+
+
+23. what is Percent? 
+
+    Out of 100.
+
+24. Percentile
+
+    How you compare against others.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
