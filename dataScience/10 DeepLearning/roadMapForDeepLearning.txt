@@ -1,0 +1,200 @@
+1. Neural Network Basics/ANN banana aur train karna.
+🎯 Concepts:Dense Layer,Activation,Optimizer,Loss,Epochs,Batch Size
+
+        1.House Price Prediction
+        2.Salary Prediction
+
+
+2. 
+🎯 Concepts :EarlyStopping,Dropout,Batch Normalization,Learning Rate Scheduler,ModelCheckpoint,TensorBoard,Confusion Matrix,Classification Report,Accuracy/Loss Graph
+
+        1.Student Pass/Fail Prediction
+        2.Customer Purchase Prediction
+        3.Wine Quality Prediction
+        4.Heart Disease Prediction
+        5.Diabetes Prediction
+        6.Employee Promotion Prediction
+        7. Customer Churn Prediction
+
+
+
+3. CNN Basics 
+
+🎯 Concepts: Image Classification,MNIST Digit Classification,Fashion MNIST,CIFAR-10,Build CNN from Scratch,Conv2D,MaxPooling,Flatten,Dropout in CNN,ImageDataGenerator / `image_dataset_from_directory`
+
+1. Rock Paper Scissors Classification
+
+
+
+
+
+
+
+
+# Level 5 - Transfer Learning (8 Tasks)
+
+🎯 Goal: Pretrained models use karna.
+
+### Task 39
+
+MobileNetV2
+
+### Task 40
+
+VGG16
+
+### Task 41
+
+ResNet50
+
+### Task 42
+
+EfficientNet
+
+### Task 43
+
+Freeze Layers
+
+### Task 44
+
+Fine Tuning
+
+### Task 45
+
+Save & Load Model
+
+### Task 46 (Mini Project)
+
+Cat vs Dog Classification
+
+---
+
+# Level 6 - Real Computer Vision Projects (10 Projects)
+
+1. Face Mask Detection
+2. Brain Tumor Detection
+3. Plant Disease Detection
+4. Helmet Detection
+5. Fire Detection
+6. Emotion Detection
+7. Signature Verification
+8. Currency Detection
+9. Waste Classification
+10. Vehicle Classification
+
+---
+
+# Level 7 - NLP (8 Projects)
+
+1. Sentiment Analysis
+2. Spam Detection
+3. Fake News Detection
+4. Language Detection
+5. Next Word Prediction
+6. IMDB Review Classification
+7. Chatbot
+8. Question Answering
+
+---
+
+# Level 8 - Time Series (5 Projects)
+
+1. Stock Price Prediction
+2. Weather Prediction
+3. Sales Forecasting
+4. Electricity Demand Prediction
+5. Bitcoin Price Prediction
+
+---
+
+# Level 9 - Deployment (6 Tasks)
+
+* Save Model
+* Load Model
+* Flask API
+* FastAPI API
+* Streamlit UI
+* Docker Deployment
+
+---
+
+# Level 10 - Portfolio Projects (Industry Level)
+
+1. Pneumonia Detection
+2. OCR (Optical Character Recognition)
+3. License Plate Recognition
+4. AI Attendance System
+5. Face Recognition System
+6. Crop Disease Detection
+7. Medical Diagnosis Assistant
+8. AI Interview Assistant
+9. Real-time Object Detection
+10. Smart CCTV System
+
+---
+
+# Daily Practice Routine (2–3 Hours)
+
+| Time      | Work                                                                   |
+| --------- | ---------------------------------------------------------------------- |
+| 30 min    | Revise one concept (e.g., Dropout, BatchNorm)                          |
+| 45 min    | Implement code from scratch (don't copy-paste)                         |
+| 30 min    | Experiment by changing epochs, batch size, optimizer, activation, etc. |
+| 45–60 min | Build or improve one mini project and document what you learned        |
+
+---
+
+# Final Goal (25+ Projects)
+
+```
+TensorFlow Basics
+        ↓
+ANN Projects
+        ↓
+Model Improvement
+        ↓
+CNN
+        ↓
+Transfer Learning
+        ↓
+Computer Vision
+        ↓
+NLP
+        ↓
+Time Series
+        ↓
+Deployment
+        ↓
+Portfolio Projects
+```
+
+## Ek Important Rule
+
+Har project me sirf model train mat karo. Har project ke liye ye checklist follow karo:
+
+* ✅ Dataset ko samjho aur clean karo
+* ✅ EDA (agar tabular data hai)
+* ✅ Preprocessing implement karo
+* ✅ Model banao
+* ✅ Training ke logs analyze karo
+* ✅ Evaluation (Accuracy, Loss, Confusion Matrix, Precision, Recall, F1)
+* ✅ Predictions test karo
+* ✅ Model save/load karo
+* ✅ README likho
+* ✅ GitHub par upload karo
+
+Agar aap ye roadmap complete kar lete hain, to aapke paas sirf Deep Learning ka knowledge hi nahi, balki **interview-ready aur portfolio-ready practical experience** bhi hoga.
+
+
+*********************
+Aapne is project me kya seekha?
+CSV dataset load karna.
+Features (X) aur Target (y) alag karna.
+train_test_split() se data divide karna.
+StandardScaler se feature scaling karna.
+Sequential model se ANN banana.
+Dense layers add karna.
+Model compile karna.
+Model train (fit) karna.
+Model evaluate aur predict karna.
+Model save karna.
