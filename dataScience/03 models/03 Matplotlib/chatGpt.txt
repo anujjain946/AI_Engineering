@@ -1,0 +1,945 @@
+# Matplotlib — Basic to Advanced Roadmap
+
+Matplotlib is a **Python data visualization library** used to create charts, graphs, plots, and visualizations. For **Data Science / ML / AI interviews**, you should know it from basic plotting to customization and ML visualization.
+
+## 1. Matplotlib Basics
+
+### 1.1 What is Matplotlib?
+
+* What is Matplotlib?
+* Why use Matplotlib?
+* Matplotlib vs Seaborn
+* Matplotlib vs Plotly
+* `pyplot`
+* Figure vs Axes
+
+### 1.2 Installation & Import
+
+```python
+import matplotlib.pyplot as plt
+```
+
+Check version:
+
+```python
+import matplotlib
+
+print(matplotlib.__version__)
+```
+
+---
+
+# 2. Basic Line Plot
+
+```python
+import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4, 5]
+y = [10, 20, 15, 30, 25]
+
+plt.plot(x, y)
+plt.show()
+```
+
+Important functions:
+
+```python
+plt.plot()
+plt.show()
+plt.title()
+plt.xlabel()
+plt.ylabel()
+```
+
+---
+
+# 3. Customize Line Plot
+
+```python
+plt.plot(
+    x,
+    y,
+    marker="o",
+    linestyle="--",
+    linewidth=2,
+    label="Sales"
+)
+
+plt.title("Monthly Sales")
+plt.xlabel("Month")
+plt.ylabel("Sales")
+
+plt.legend()
+plt.grid()
+
+plt.show()
+```
+
+Learn:
+
+* `color`
+* `marker`
+* `linestyle`
+* `linewidth`
+* `markersize`
+* `alpha`
+* `label`
+* `legend`
+* `grid`
+
+---
+
+# 4. Multiple Lines
+
+```python
+x = [1, 2, 3, 4, 5]
+
+sales_2024 = [10, 20, 15, 30, 40]
+sales_2025 = [15, 25, 20, 35, 50]
+
+plt.plot(x, sales_2024, label="2024")
+plt.plot(x, sales_2025, label="2025")
+
+plt.xlabel("Month")
+plt.ylabel("Sales")
+plt.title("Sales Comparison")
+
+plt.legend()
+plt.show()
+```
+
+---
+
+# 5. Bar Chart
+
+Used for **categorical data**.
+
+```python
+products = ["Laptop", "Mobile", "Tablet"]
+sales = [50, 80, 40]
+
+plt.bar(products, sales)
+
+plt.title("Product Sales")
+plt.xlabel("Product")
+plt.ylabel("Sales")
+
+plt.show()
+```
+
+Important:
+
+```python
+plt.bar()
+plt.barh()
+```
+
+Horizontal bar:
+
+```python
+plt.barh(products, sales)
+```
+
+---
+
+# 6. Multiple Bar Charts
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+products = ["Laptop", "Mobile", "Tablet"]
+
+sales_2024 = [50, 80, 40]
+sales_2025 = [60, 90, 55]
+
+x = np.arange(len(products))
+width = 0.35
+
+plt.bar(x - width/2, sales_2024, width, label="2024")
+plt.bar(x + width/2, sales_2025, width, label="2025")
+
+plt.xticks(x, products)
+plt.legend()
+
+plt.show()
+```
+
+---
+
+# 7. Pie Chart
+
+Used to show **percentage/proportion**.
+
+```python
+labels = ["Python", "Java", "PHP", "C++"]
+values = [40, 30, 20, 10]
+
+plt.pie(
+    values,
+    labels=labels,
+    autopct="%1.1f%%"
+)
+
+plt.title("Programming Language Usage")
+plt.show()
+```
+
+Learn:
+
+* `labels`
+* `autopct`
+* `explode`
+* `startangle`
+* `shadow`
+
+---
+
+# 8. Histogram
+
+Very important for **Data Science and ML**.
+
+Used to understand **distribution of numerical data**.
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+data = np.random.normal(50, 10, 1000)
+
+plt.hist(data, bins=30)
+
+plt.title("Age Distribution")
+plt.xlabel("Age")
+plt.ylabel("Frequency")
+
+plt.show()
+```
+
+Learn:
+
+* bins
+* density
+* cumulative
+* alpha
+
+---
+
+# 9. Scatter Plot
+
+Very important for **Machine Learning**.
+
+Used to understand relationships between two variables.
+
+```python
+hours = [1, 2, 3, 4, 5, 6]
+marks = [40, 45, 50, 60, 70, 80]
+
+plt.scatter(hours, marks)
+
+plt.xlabel("Study Hours")
+plt.ylabel("Marks")
+
+plt.title("Study Hours vs Marks")
+
+plt.show()
+```
+
+Useful for:
+
+* correlation
+* outliers
+* regression
+* clusters
+
+---
+
+# 10. Subplots
+
+You can create multiple plots in one figure.
+
+```python
+fig, ax = plt.subplots(2, 2)
+
+ax[0, 0].plot(x, y)
+ax[0, 1].bar(products, sales)
+ax[1, 0].scatter(hours, marks)
+ax[1, 1].hist(data)
+
+plt.show()
+```
+
+Understand:
+
+```text
+Figure
+ ├── Axes
+ ├── Axes
+ ├── Axes
+ └── Axes
+```
+
+This is an **important interview topic**.
+
+---
+
+# 11. Figure and Axes
+
+Instead of only using `plt`, learn the **Object-Oriented API**.
+
+```python
+fig, ax = plt.subplots()
+
+ax.plot(x, y)
+
+ax.set_title("Sales")
+ax.set_xlabel("Month")
+ax.set_ylabel("Revenue")
+
+plt.show()
+```
+
+Recommended for professional projects.
+
+---
+
+# 12. Axis Customization
+
+```python
+plt.xlim(0, 10)
+plt.ylim(0, 100)
+
+plt.xticks([1, 2, 3, 4, 5])
+plt.yticks([20, 40, 60, 80])
+```
+
+With OO API:
+
+```python
+ax.set_xlim(0, 10)
+ax.set_ylim(0, 100)
+```
+
+---
+
+# 13. Labels and Annotations
+
+```python
+plt.plot(x, y)
+
+plt.annotate(
+    "Highest Sale",
+    xy=(5, 25),
+    xytext=(3, 30),
+    arrowprops={}
+)
+
+plt.show()
+```
+
+Used to highlight important points.
+
+---
+
+# 14. Grid and Styling
+
+```python
+plt.grid(
+    True,
+    linestyle="--",
+    alpha=0.5
+)
+```
+
+Learn:
+
+* grid
+* transparency
+* line styles
+* markers
+* fonts
+* spacing
+
+---
+
+# 15. Multiple Y-Axis
+
+Sometimes two variables have different scales.
+
+```python
+fig, ax1 = plt.subplots()
+
+ax1.plot(x, sales)
+ax1.set_ylabel("Sales")
+
+ax2 = ax1.twinx()
+
+ax2.plot(x, profit)
+ax2.set_ylabel("Profit")
+
+plt.show()
+```
+
+Important interview concept:
+
+**`twinx()` creates a second y-axis sharing the same x-axis.**
+
+---
+
+# 16. Error Bars
+
+Used when showing uncertainty.
+
+```python
+x = [1, 2, 3, 4]
+y = [10, 20, 30, 40]
+error = [2, 3, 2, 4]
+
+plt.errorbar(
+    x,
+    y,
+    yerr=error,
+    fmt="o"
+)
+
+plt.show()
+```
+
+---
+
+# 17. Box Plot
+
+Very important for **outlier detection**.
+
+```python
+data = [10, 12, 15, 18, 20, 22, 25, 100]
+
+plt.boxplot(data)
+
+plt.title("Box Plot")
+
+plt.show()
+```
+
+Understand:
+
+```text
+Minimum
+   |
+Q1
+ |
+Median
+ |
+Q3
+ |
+Maximum
+
++ Outliers
+```
+
+---
+
+# 18. Violin Plot
+
+Used to understand distribution.
+
+```python
+data = [10, 12, 15, 18, 20, 22, 25, 30]
+
+plt.violinplot(data)
+
+plt.show()
+```
+
+---
+
+# 19. Area Plot
+
+```python
+x = [1, 2, 3, 4, 5]
+y = [10, 20, 15, 30, 40]
+
+plt.fill_between(x, y)
+
+plt.show()
+```
+
+---
+
+# 20. Stack Plot
+
+Useful for cumulative/category trends.
+
+```python
+x = [1, 2, 3, 4, 5]
+
+a = [10, 15, 20, 25, 30]
+b = [5, 10, 15, 10, 20]
+
+plt.stackplot(x, a, b)
+
+plt.show()
+```
+
+---
+
+# 21. Logarithmic Scale
+
+Useful when values vary greatly.
+
+```python
+plt.plot(x, y)
+
+plt.yscale("log")
+
+plt.show()
+```
+
+Other options:
+
+```python
+plt.xscale("log")
+plt.yscale("log")
+```
+
+---
+
+# 22. Date/Time Visualization
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+
+dates = pd.date_range(
+    "2026-01-01",
+    periods=5
+)
+
+sales = [100, 150, 120, 180, 200]
+
+plt.plot(dates, sales)
+
+plt.xticks(rotation=45)
+
+plt.show()
+```
+
+Important for:
+
+* Time Series
+* Stock data
+* Sales forecasting
+* IoT data
+
+---
+
+# 23. Heatmap with Matplotlib
+
+Matplotlib doesn't have Seaborn's dedicated `heatmap()` function, but you can use `imshow()`.
+
+```python
+data = [
+    [10, 20, 30],
+    [20, 40, 60],
+    [30, 60, 90]
+]
+
+plt.imshow(data)
+
+plt.colorbar()
+
+plt.show()
+```
+
+For Data Science, you'll commonly see heatmaps through Seaborn.
+
+---
+
+# 24. ML Visualization
+
+Matplotlib becomes especially important in Machine Learning.
+
+### Training Loss
+
+```python
+plt.plot(history.history["loss"])
+plt.plot(history.history["val_loss"])
+
+plt.xlabel("Epoch")
+plt.ylabel("Loss")
+
+plt.legend(["Training", "Validation"])
+
+plt.show()
+```
+
+### Accuracy
+
+```python
+plt.plot(history.history["accuracy"])
+plt.plot(history.history["val_accuracy"])
+
+plt.xlabel("Epoch")
+plt.ylabel("Accuracy")
+
+plt.legend(["Training", "Validation"])
+
+plt.show()
+```
+
+You can identify:
+
+```text
+Overfitting
+Underfitting
+Training performance
+Validation performance
+```
+
+---
+
+# 25. Regression Visualization
+
+```python
+plt.scatter(y_test, predictions)
+
+plt.xlabel("Actual")
+plt.ylabel("Predicted")
+
+plt.title("Actual vs Predicted")
+
+plt.show()
+```
+
+Ideal regression model:
+
+```text
+Actual ≈ Predicted
+```
+
+You can also add a reference line:
+
+```python
+plt.plot(
+    [min(y_test), max(y_test)],
+    [min(y_test), max(y_test)]
+)
+```
+
+---
+
+# 26. Confusion Matrix Visualization
+
+```python
+from sklearn.metrics import confusion_matrix
+import matplotlib.pyplot as plt
+
+cm = confusion_matrix(y_test, y_pred)
+
+plt.imshow(cm)
+
+plt.colorbar()
+
+plt.xlabel("Predicted")
+plt.ylabel("Actual")
+
+plt.title("Confusion Matrix")
+
+plt.show()
+```
+
+For production-quality ML reports, `ConfusionMatrixDisplay` from scikit-learn is often more convenient.
+
+---
+
+# 27. Save Figure
+
+Very important.
+
+```python
+plt.savefig("sales.png")
+```
+
+High-quality image:
+
+```python
+plt.savefig(
+    "sales.png",
+    dpi=300,
+    bbox_inches="tight"
+)
+```
+
+Other formats:
+
+```text
+.png
+.jpg
+.svg
+.pdf
+```
+
+---
+
+# 28. Figure Size
+
+```python
+plt.figure(figsize=(10, 6))
+```
+
+OO API:
+
+```python
+fig, ax = plt.subplots(
+    figsize=(10, 6)
+)
+```
+
+---
+
+# 29. Professional Plot Structure
+
+For professional projects, prefer:
+
+```python
+fig, ax = plt.subplots(figsize=(10, 6))
+
+ax.plot(
+    x,
+    y,
+    marker="o",
+    label="Sales"
+)
+
+ax.set_title("Monthly Sales")
+ax.set_xlabel("Month")
+ax.set_ylabel("Revenue")
+
+ax.legend()
+ax.grid(True)
+
+plt.tight_layout()
+plt.show()
+```
+
+This is better than putting everything directly through `plt` when your visualization becomes complex.
+
+---
+
+# 30. Advanced Matplotlib Topics
+
+After the basics, learn:
+
+### Intermediate
+
+* Figure
+* Axes
+* Axis
+* Subplots
+* `GridSpec`
+* Multiple axes
+* `twinx()`
+* `twiny()`
+* Tick formatting
+* Date formatting
+* Text
+* Annotations
+* Legends
+* Colorbars
+* Colormaps
+
+### Advanced
+
+* Object-Oriented API
+* Custom transforms
+* Coordinate systems
+* `GridSpec`
+* `subplot_mosaic`
+* Custom tick locators
+* Custom tick formatters
+* `ScalarFormatter`
+* `LogFormatter`
+* `FuncFormatter`
+* Custom colormaps
+* `Normalize`
+* Colorbar customization
+* `Patch`
+* `Line2D`
+* `Rectangle`
+* `Circle`
+* `Polygon`
+* `Path`
+* Custom artists
+* Animation
+* Interactive plots
+* Backend concepts
+* Figure saving/export
+* Publication-quality plots
+
+---
+
+# 31. Matplotlib for Data Science
+
+You should be able to visualize:
+
+```text
+Dataset
+   ↓
+EDA
+   ↓
+Distribution
+   ├── Histogram
+   ├── Box Plot
+   └── Violin Plot
+   ↓
+Relationships
+   ├── Scatter Plot
+   ├── Line Plot
+   └── Bar Plot
+   ↓
+Correlation
+   └── Heatmap
+   ↓
+ML Model
+   ├── Training Loss
+   ├── Accuracy
+   ├── Confusion Matrix
+   ├── ROC Curve
+   ├── Precision-Recall
+   └── Actual vs Predicted
+```
+
+---
+
+# 32. Matplotlib + Pandas
+
+You will frequently use:
+
+```python
+df["salary"].plot(kind="hist")
+```
+
+```python
+df.plot(
+    x="experience",
+    y="salary",
+    kind="scatter"
+)
+```
+
+```python
+df["department"].value_counts().plot(
+    kind="bar"
+)
+```
+
+So learn both:
+
+**Pandas plotting + Matplotlib customization.**
+
+---
+
+# 33. Matplotlib + NumPy
+
+Very common combination:
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(0, 10, 100)
+
+y = np.sin(x)
+
+plt.plot(x, y)
+
+plt.show()
+```
+
+This is useful for understanding mathematical functions and neural-network concepts.
+
+---
+
+# 34. Interview Questions
+
+### Basic
+
+1. What is Matplotlib?
+2. Why is Matplotlib used?
+3. What is `pyplot`?
+4. How do you create a line plot?
+5. How do you create a bar chart?
+6. How do you create a histogram?
+7. How do you create a scatter plot?
+8. How do you add a title?
+9. How do you add axis labels?
+10. How do you add a legend?
+
+### Intermediate
+
+11. Difference between Figure and Axes?
+12. What is `plt.subplots()`?
+13. `plt.plot()` vs `ax.plot()`?
+14. How do you create subplots?
+15. How do you change figure size?
+16. How do you customize ticks?
+17. How do you add annotations?
+18. How do you create multiple Y axes?
+19. What is `twinx()`?
+20. How do you save a plot?
+
+### Advanced
+
+21. What is Matplotlib's Object-Oriented API?
+22. What is `GridSpec`?
+23. What are Artists?
+24. What are transforms?
+25. What are colormaps?
+26. How does a colorbar work?
+27. How do you create custom tick formatting?
+28. How do you create publication-quality plots?
+29. How do you visualize ML training history?
+30. How do you visualize regression predictions?
+31. How do you visualize a confusion matrix?
+32. How do you visualize ROC curves?
+33. How do you detect overfitting using Matplotlib?
+34. How do you plot time-series data?
+35. How do you create multiple axes in one figure?
+
+---
+
+## 🎯 Best Learning Order for You
+
+Since you're preparing for **Data Science / ML / AI interviews**, don't try to memorize every Matplotlib function.
+
+Follow this order:
+
+**Level 1 — Must Know**
+
+`plot → scatter → bar → histogram → pie → boxplot`
+
+⬇️
+
+**Level 2 — Data Science**
+
+`subplots → figure/axes → ticks → labels → legend → grid → annotations`
+
+⬇️
+
+**Level 3 — EDA**
+
+`distribution → outliers → correlation → categorical comparison → time series`
+
+⬇️
+
+**Level 4 — ML**
+
+`loss curve → accuracy curve → confusion matrix → ROC → actual vs predicted → residual plot`
+
+⬇️
+
+**Level 5 — Advanced**
+
+`OO API → GridSpec → colorbar → colormap → tick formatter → multiple axes → custom artists → animation`
+
+**For interviews, the most important concepts are:** `Figure vs Axes`, `plt vs OO API`, `subplots`, histogram vs bar chart, scatter plot, box plot/outliers, customization, saving figures, and ML training/validation plots.
