@@ -1,0 +1,7 @@
+GitHub - Link
+https://github.com/imnowdevops/ddc-material
+https://github.com/hkhcoder/vprofile-project
+
+#install chocolatey
+https://chocolatey.org/install
+https://community.chocolatey.org/packages 
