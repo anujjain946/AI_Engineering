@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block title %}Admin Dashboard - Role-Based Django{% endblock %}
+{% block page_title %}<i class="fas fa-user-shield text-danger me-2"></i>Admin Dashboard{% endblock %}
+
+{% block content %}
+<div class="row g-4">
+    <div class="col-lg-3 col-md-6">
+        <div class="card bg-danger text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="text-uppercase">Total Users</h6>
+                        <h2 class="mb-0">1,250</h2>
+                    </div>
+                    <i class="fas fa-users fa-2x opacity-75"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="card bg-primary text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="text-uppercase">Managers</h6>
+                        <h2 class="mb-0">45</h2>
+                    </div>
+                    <i class="fas fa-user-tie fa-2x opacity-75"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="card bg-success text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="text-uppercase">Customers</h6>
+                        <h2 class="mb-0">1,180</h2>
+                    </div>
+                    <i class="fas fa-user fa-2x opacity-75"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="card bg-warning text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="text-uppercase">Active Menus</h6>
+                        <h2 class="mb-0">12</h2>
+                    </div>
+                    <i class="fas fa-bars fa-2x opacity-75"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4 mt-2">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-chart-line me-2"></i>System Overview
+            </div>
+            <div class="card-body">
+                <p class="text-muted">Welcome to the Admin Dashboard. You have full access to manage users, menus, roles, and system settings.</p>
+                <a href="/admin/" class="btn btn-danger">
+                    <i class="fas fa-cog me-2"></i>Open Django Admin
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-bolt me-2"></i>Quick Actions
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <a href="/admin/accounts/user/" class="btn btn-outline-primary"><i class="fas fa-users me-2"></i>Manage Users</a>
+                    <a href="/admin/core/menuitem/" class="btn btn-outline-success"><i class="fas fa-bars me-2"></i>Manage Menus</a>
+                    <a href="/admin/core/roleassignment/" class="btn btn-outline-warning"><i class="fas fa-user-tag me-2"></i>Manage Roles</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

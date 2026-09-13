@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<div class="card">
+    <h1>User Dashboard</h1>
+    <p>Welcome, <b>{{ request.user.username }}</b>.</p>
+    <p>This dashboard is protected by Django authentication and RBAC permissions.</p>
+    <h3>Your dynamic menu</h3>
+    <ul>
+        {% for item, children in dynamic_menu_items %}
+        <li>{{ item.name }} — {{ item.required_permission|default:"public" }}</li>
+        {% endfor %}
+    </ul>
+    {% if request.user.is_staff %}
+        <a class="btn" href="/admin/">Open Custom Admin</a>
+    {% endif %}
+</div>
+{% endblock %}

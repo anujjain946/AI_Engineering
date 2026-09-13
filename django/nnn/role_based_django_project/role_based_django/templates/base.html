@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Role-Based Django{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --sidebar-width: 260px;
+        }
+        body {
+            background-color: #f8f9fa;
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: var(--sidebar-width);
+            background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
+            color: #ecf0f1;
+            overflow-y: auto;
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+        .sidebar-brand {
+            padding: 1.5rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: #fff;
+        }
+        .sidebar-menu {
+            padding: 1rem 0;
+        }
+        .sidebar-menu .nav-link {
+            color: rgba(255,255,255,0.8);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.2s;
+        }
+        .sidebar-menu .nav-link:hover,
+        .sidebar-menu .nav-link.active {
+            color: #fff;
+            background: rgba(255,255,255,0.1);
+        }
+        .sidebar-menu .nav-link i {
+            width: 20px;
+            text-align: center;
+        }
+        .sidebar-menu .dropdown-menu {
+            background: rgba(0,0,0,0.2);
+            border: none;
+            margin-left: 1rem;
+        }
+        .sidebar-menu .dropdown-menu .nav-link {
+            padding-left: 3rem;
+        }
+        .main-content {
+            margin-left: var(--sidebar-width);
+            min-height: 100vh;
+            transition: all 0.3s;
+        }
+        .top-navbar {
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 1rem 2rem;
+        }
+        .content-wrapper {
+            padding: 2rem;
+        }
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #3498db;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+        .role-badge {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+        }
+        .role-admin { background: #e74c3c; color: #fff; }
+        .role-manager { background: #f39c12; color: #fff; }
+        .role-customer { background: #27ae60; color: #fff; }
+        .card {
+            border: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 12px;
+        }
+        .card-header {
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            font-weight: 600;
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            .sidebar.show {
+                transform: translateX(0);
+            }
+            .main-content {
+                margin-left: 0;
+            }
+        }
+    </style>
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <i class="fas fa-shield-alt me-2"></i>
+            {{ request.user.username|default:"Django App" }}
+        </div>
+        <div class="sidebar-menu">
+            {% if user.is_authenticated %}
+                {% for menu in menu_items %}
+                    {% if menu.has_children %}
+                        <div class="dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                                <i class="fas {{ menu.icon }}"></i>
+                                <span>{{ menu.title }}</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                {% for child in menu.get_children %}
+                                    <li>
+                                        <a class="dropdown-item nav-link" href="{{ child.url }}">
+                                            <i class="fas {{ child.icon }}"></i>
+                                            <span>{{ child.title }}</span>
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% else %}
+                        <a class="nav-link" href="{{ menu.url }}">
+                            <i class="fas {{ menu.icon }}"></i>
+                            <span>{{ menu.title }}</span>
+                        </a>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Navbar -->
+        <div class="top-navbar">
+            <div class="d-flex justify-content-between align-items-center">
+                <button class="btn btn-outline-secondary d-md-none" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h4 class="mb-0">{% block page_title %}{{ page_title|default:"Dashboard" }}{% endblock %}</h4>
+                <div class="user-info">
+                    <div class="text-end">
+                        <div class="fw-semibold">{{ user.get_full_name|default:user.username }}</div>
+                        {% if user.is_authenticated %}
+                            <span class="role-badge role-{{ user.role }}">{{ user.get_role_display }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="user-avatar">
+                        {{ user.username|first|upper }}
+                    </div>
+                    {% if user.is_authenticated %}
+                        <div class="dropdown">
+                            <button class="btn btn-link" data-bs-toggle="dropdown">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="{% url 'accounts:dashboard' %}"><i class="fas fa-tachometer-alt me-2"></i>Dashboard</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="{% url 'accounts:logout' %}"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                            </ul>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Wrapper -->
+        <div class="content-wrapper">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Sidebar toggle for mobile
+        document.getElementById('sidebarToggle')?.addEventListener('click', function() {
+            document.getElementById('sidebar').classList.toggle('show');
+        });
+    </script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
