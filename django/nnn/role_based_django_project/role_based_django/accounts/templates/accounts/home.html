@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Welcome - Role-Based Django{% endblock %}
+
+{% block content %}
+<div class="text-center py-5">
+    <h1 class="display-4 mb-4">
+        <i class="fas fa-shield-alt text-primary"></i>
+        Role-Based Django Application
+    </h1>
+    <p class="lead text-muted mb-4">
+        A complete Django application with role-based authentication, dynamic menus, and dashboards.
+    </p>
+
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-user-shield fa-3x text-danger mb-3"></i>
+                            <h5>Admin</h5>
+                            <p class="small text-muted">Full access to all features and management tools</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-user-tie fa-3x text-warning mb-3"></i>
+                            <h5>Manager</h5>
+                            <p class="small text-muted">Manage teams, projects, and customer relationships</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-user fa-3x text-success mb-3"></i>
+                            <h5>Customer</h5>
+                            <p class="small text-muted">Access products, services, and support</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-5">
+        <a href="{% url 'accounts:login' %}" class="btn btn-primary btn-lg me-3">
+            <i class="fas fa-sign-in-alt me-2"></i>Login
+        </a>
+        <a href="{% url 'accounts:register' %}" class="btn btn-outline-primary btn-lg">
+            <i class="fas fa-user-plus me-2"></i>Register
+        </a>
+    </div>
+</div>
+{% endblock %}

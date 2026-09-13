@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}Customer Dashboard - Role-Based Django{% endblock %}
+{% block page_title %}<i class="fas fa-user text-success me-2"></i>Customer Dashboard{% endblock %}
+
+{% block content %}
+<div class="row g-4">
+    <div class="col-lg-4 col-md-6">
+        <div class="card bg-success text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="text-uppercase">My Orders</h6>
+                        <h2 class="mb-0">5</h2>
+                    </div>
+                    <i class="fas fa-shopping-bag fa-2x opacity-75"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6">
+        <div class="card bg-primary text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="text-uppercase">Active Services</h6>
+                        <h2 class="mb-0">3</h2>
+                    </div>
+                    <i class="fas fa-cogs fa-2x opacity-75"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6">
+        <div class="card bg-info text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="text-uppercase">Support Tickets</h6>
+                        <h2 class="mb-0">1</h2>
+                    </div>
+                    <i class="fas fa-life-ring fa-2x opacity-75"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4 mt-2">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-home me-2"></i>Welcome Back!
+            </div>
+            <div class="card-body">
+                <p class="text-muted">Welcome to your Customer Dashboard. Access your account, orders, services, and support using the menu on the left.</p>
+                <div class="alert alert-success mb-0">
+                    <i class="fas fa-check-circle me-2"></i>Your role-based menu only displays features available to customers.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-question-circle me-2"></i>Need Help?
+            </div>
+            <div class="card-body">
+                <p class="text-muted">Our support team is here to help you.</p>
+                <button class="btn btn-outline-success w-100"><i class="fas fa-headset me-2"></i>Contact Support</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

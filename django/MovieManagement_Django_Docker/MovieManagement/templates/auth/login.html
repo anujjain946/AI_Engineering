@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<div class="card" style="max-width:420px;margin:80px auto;">
+    <h1>User Login</h1>
+    {% if error %}<div class="error">{{ error }}</div>{% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <label>Username</label>
+        <input name="username" required autofocus>
+        <label>Password</label>
+        <input type="password" name="password" required>
+        <button class="btn" type="submit">Login</button>
+    </form>
+    <p>Demo user: <b>user</b> / <b>User@123</b></p>
+    <p>Admin: <b>admin</b> / <b>Admin@123</b></p>
+</div>
+{% endblock %}
