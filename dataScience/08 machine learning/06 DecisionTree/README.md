@@ -1490,6 +1490,7 @@ reduce the effect of an individual tree's variance.
 
 ## Q11. What is feature importance?
 
+
 It is a model-derived measure indicating how much each feature
 contributes to the model's splitting/prediction process.
 
